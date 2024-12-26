@@ -13,9 +13,9 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public interface UserRepository extends JpaRepository<Admin,Long> {
 
-    @Query(value = "Select u from Admin u where u.username= :email ")
+    @Query(value = "Select u from Admin u where u.email= :email ")
     Optional<Admin> fetchUserWithEmail(@Param("email") String email) ;
 
-    @Query(value = "Select COUNT(u)>0 from Admin u where u.username= :email")
+    @Query(value = "Select COUNT(u)>0 from Admin u where u.email= :email")
     boolean isEmailRegistered(@Param("email") String email);
 }

@@ -1,5 +1,6 @@
 package com.example.textilproject.security.utility;
 
+import com.example.textilproject.exceptions.custom.ResourceNotFoundCustomException;
 import com.example.textilproject.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,5 +17,5 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepository.fetchUserWithEmail(email).orElseThrow(() -> new IllegalArgumentException("user not found"));}
+        return userRepository.fetchUserWithEmail(email).orElseThrow(() -> new ResourceNotFoundCustomException("user not found"));}
 }

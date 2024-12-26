@@ -7,9 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Data
 @Entity
 @Table(name = "admins")
-@Data
 public class Admin implements UserDetails {
 
     @Id
@@ -18,7 +18,10 @@ public class Admin implements UserDetails {
     private Long id ;
 
     @Column(name = "username" , nullable = false , unique = true)
-    private String username ;
+    private String name ;
+
+    @Column(name = "email" , nullable = false , unique = true)
+    private String email ;
 
     @Column(name = "password" , nullable = false)
     private String password ;
@@ -32,12 +35,12 @@ public class Admin implements UserDetails {
 
     @Override
     public String getUsername(){
-        return this.username;
+        return this.email;
     }
 
     @Override
     public String getPassword() {
-        return this.password; // Return the password field
+        return this.password;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.example.textilproject.service;
 
-import com.example.textilproject.DTO.productDTO;
+import com.example.textilproject.DTO.product.productDTO;
 import org.springframework.http.ResponseEntity;
 
 public interface ProductService {

@@ -1,6 +1,6 @@
 package com.example.textilproject.service;
 
-import com.example.textilproject.DTO.productDTO;
+import com.example.textilproject.DTO.product.productDTO;
 import com.example.textilproject.model.Product;
 import com.example.textilproject.repository.ProductRepository;
 import io.micrometer.common.lang.NonNull;
@@ -52,6 +52,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public Product getProductById(Long productId){
-        return productRepository.findById(productId).orElseThrow(() -> new IllegalArgumentException("product not found"))
+        return productRepository.findById(productId).orElseThrow(() -> new IllegalArgumentException("product not found"));
     }
 }

@@ -6,7 +6,6 @@ import com.example.textilproject.security.utility.CustomUserDetailsService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +19,7 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,7 +58,8 @@ public class SecurityConfig {
                           exceptions -> exceptions.authenticationEntryPoint(authEntryPoint)
                   )
                   .authorizeHttpRequests(
-                          req -> req.anyRequest().permitAll()
+                          req -> req.requestMatchers("api/v1/auth/**")
+                                  .permitAll()
                   )
                   .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                   .userDetailsService(customUserDetailsService)

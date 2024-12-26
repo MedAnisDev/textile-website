@@ -1,4 +1,4 @@
-package com.example.textilproject.DTO;
+package com.example.textilproject.DTO.product;
 
 
 import jakarta.validation.constraints.NotBlank;

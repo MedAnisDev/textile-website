@@ -1,6 +1,6 @@
 package com.example.textilproject.controller;
 
-import com.example.textilproject.DTO.productDTO;
+import com.example.textilproject.DTO.product.productDTO;
 import com.example.textilproject.service.ProductService;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.ResponseEntity;

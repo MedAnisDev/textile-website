@@ -4,10 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-
+@Data
 @Entity
 @Table(name = "files")
-@Data
 public class ImageFile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
