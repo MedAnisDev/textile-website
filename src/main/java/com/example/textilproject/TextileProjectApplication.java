@@ -1,0 +1,12 @@
+package com.example.textilproject;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TextileProjectApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(TextileProjectApplication.class, args);
+    }
+
+}
