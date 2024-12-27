@@ -1,8 +1,8 @@
 package com.example.textilproject.controller;
 
 import com.example.textilproject.DTO.auth.*;
-import com.example.textilproject.service.AuthService;
-import com.example.textilproject.service.AuthServiceImpl;
+import com.example.textilproject.service.auth.AuthService;
+import com.example.textilproject.service.auth.AuthServiceImpl;
 import jakarta.validation.Valid;
 import lombok.NonNull;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.textilproject.service;
+package com.example.textilproject.service.auth;
 
 import com.example.textilproject.DTO.auth.*;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.example.textilproject.service;
+package com.example.textilproject.service.auth;
 
 import com.example.textilproject.DTO.auth.*;
 import com.example.textilproject.DTO.user.UserDTOMapper;
@@ -32,7 +32,7 @@ import java.util.Date;
 
 @Service
 @Slf4j
-public class AuthServiceImpl implements AuthService{
+public class AuthServiceImpl implements AuthService {
     private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
 
     private final JWTService jwtService ;

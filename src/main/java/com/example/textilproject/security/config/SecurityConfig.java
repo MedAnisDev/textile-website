@@ -6,6 +6,7 @@ import com.example.textilproject.security.utility.CustomUserDetailsService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -57,10 +58,12 @@ public class SecurityConfig {
                   .exceptionHandling(
                           exceptions -> exceptions.authenticationEntryPoint(authEntryPoint)
                   )
-                  .authorizeHttpRequests(
-                          req -> req.requestMatchers("api/v1/auth/**")
-                                  .permitAll()
-                  )
+                      .authorizeHttpRequests(
+                              req -> req.requestMatchers(HttpMethod.GET, "api/v1/products/**")
+                                      .permitAll()
+                                      .requestMatchers("api/v1/auth/**").permitAll()
+                                      .anyRequest().authenticated()
+                      )
                   .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                   .userDetailsService(customUserDetailsService)
                   .addFilterBefore(jwtAuthenticationFilter , UsernamePasswordAuthenticationFilter.class)

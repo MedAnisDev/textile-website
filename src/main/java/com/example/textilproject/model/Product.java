@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Builder
@@ -40,6 +41,8 @@ public class Product {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt= LocalDateTime.now();
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ImageFile> imageFiles;
 
 }
 
