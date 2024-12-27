@@ -41,6 +41,19 @@ public class ProductController {
         return new ResponseEntity<>("successfull", HttpStatus.CREATED);
     }
 
+    @GetMapping()
+    public ResponseEntity<Object> fetchProducts(@RequestParam(name = "pageNumber" , defaultValue = "1") int pageNumber){
+        return productService.fetchProducts(pageNumber);
+    }
+
+    @GetMapping("/custom")
+    public ResponseEntity<Object> fetchProductsByCategory(
+            @RequestParam(name = "pageNumber" , defaultValue = "1") int pageNumber ,
+            @RequestParam(name = "category") String category
+    ){
+        return productService.fetchProductsByCategory(pageNumber ,category);
+    }
+
     @PutMapping("/update/{productId}")
     public ResponseEntity<Object> updateProduct(
             @RequestParam("files") List<MultipartFile> files,

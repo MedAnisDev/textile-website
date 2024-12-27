@@ -105,6 +105,8 @@ public class ImagesFileServiceImpl implements ImagesFileService {
     public void deleteImagesFromSystem(@NotNull final List<ImageFile> productImages)throws IOException {
 
         for(ImageFile imageToDelete : productImages){
+            //delete file metadata from database
+            imageFileRepository.delete(imageToDelete);
             //delete file from server using NIO
             Path imagePath = Paths.get(imageToDelete.getFileUrl()) ;
             Files.delete(imagePath);

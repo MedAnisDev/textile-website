@@ -12,4 +12,8 @@ public interface ProductService {
     ResponseEntity<Object> updateProduct(Long productId ,String productDTO , List<MultipartFile> files)throws IOException;
 
     ResponseEntity<Object> deleteProductById(Long productId)throws IOException;
+
+    ResponseEntity<Object> fetchProducts(int pageNumber);
+    ResponseEntity<Object> fetchProductsByCategory(int pageNumber , String category);
+
 }
