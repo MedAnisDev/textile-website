@@ -11,4 +11,6 @@ public interface ImagesFileService {
     List<ImageFile> uploadMultipleFiles(List<MultipartFile> files , final Product currentProduct) throws IOException ;
     ImageFile handleFile(final MultipartFile file  , final Product currentProduct) throws IOException ;
     ImageFile uploadFile(final MultipartFile file ) throws IOException ;
+    ImageFile getFileById(final Long fileId);
+    void deleteImagesFromSystem(List<ImageFile> productImages ) throws IOException ;
 }

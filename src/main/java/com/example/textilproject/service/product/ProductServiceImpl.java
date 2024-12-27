@@ -1,6 +1,7 @@
 package com.example.textilproject.service.product;
 
 import com.example.textilproject.DTO.product.ProductDTOMapper;
+import com.example.textilproject.model.ImageFile;
 import com.example.textilproject.model.Product;
 import com.example.textilproject.repository.ProductRepository;
 import com.example.textilproject.service.file.ImagesFileService;
@@ -48,6 +49,7 @@ public class ProductServiceImpl implements ProductService {
         return new ResponseEntity<>(productDTOMapper.apply(currentProduct), HttpStatus.CREATED);
     }
 
+    @Transactional
     @Override
     public ResponseEntity<Object> updateProduct(
             final Long productId ,
@@ -67,10 +69,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional
     @Override
-    public ResponseEntity<Object> deleteProductById(final Long productId) {
+    public ResponseEntity<Object> deleteProductById(final Long productId) throws IOException {
         final Product currentProduct = getProductById(productId) ;
+        List < ImageFile> productImages = currentProduct.getImageFiles() ;
 
+        imagesFileService.deleteImagesFromSystem(productImages);
         productRepository.deleteById(productId);
+
         final String successResponse = String.format("product with ID :  %d deleted successfully", productId);
         return new ResponseEntity<>(successResponse , HttpStatus.OK);
     }

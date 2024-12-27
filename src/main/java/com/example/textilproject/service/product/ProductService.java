@@ -11,5 +11,5 @@ public interface ProductService {
 
     ResponseEntity<Object> updateProduct(Long productId ,String productDTO , List<MultipartFile> files)throws IOException;
 
-    ResponseEntity<Object> deleteProductById(Long productId);
+    ResponseEntity<Object> deleteProductById(Long productId)throws IOException;
 }
